@@ -1,4 +1,34 @@
 --This API interfaces with IC2 nuclear reators
+--Version 0.0.2
+
+directory = '/config/nuke.dat'
+
+function reactorSide()
+  n = 'nuclear_reactor'
+  s = {'top','bottom','left','right','front','back'}
+  for i=1,#s do
+    if peripheral.getType(s[i]) == n then
+      --print("Nuclear Reactor on the "..s[i])
+      return s[i]
+    end
+  end
+end
+
+function put(y)
+  file = fs.open(directory,'w')
+  file.write(y)
+  file.close()
+end
+
+function get()
+  file = fs.open(directory,'r')
+  local side = file.readLine()
+  file.close()
+  return side
+end
+
+put(reactorSide())
+--This API interfaces with IC2 nuclear reators
 
 directory = '/config/nuke.dat'
 
