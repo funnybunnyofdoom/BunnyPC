@@ -23,9 +23,13 @@ function side() --Returns the side of the monitor
   end
   return side
 end
-
+ 
 function get() --Creates and returns a monitor object
   local side = side()
   monitor = peripheral.wrap(side)
   return monitor
+end
+ 
+function redirect() --shortcut to redirect term to monitor
+  term.redirect(get())
 end
