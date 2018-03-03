@@ -1,0 +1,31 @@
+--Author: FunnyBunnyofDOOM
+--Date: 3/3/2018
+--Version: 0.0.1
+
+--This program will allow interfacing with
+--the monitor easier
+
+--Make sure to include:
+-- os.loadAPI(".../monitor")
+--In the start menu
+--In order to load this API
+
+function side() --Returns the side of the monitor
+  local sides = {"top", "bottom", "left", "right", "front", "back"}
+  local side = ''
+  for i=1,6 do
+    if peripheral.getType(sides[i]) == "monitor" then
+      side = sides[i]
+    end
+    if side == '' then
+      side = 'none'
+    end
+  end
+  return side
+end
+
+function get() --Creates and returns a monitor object
+  local side = side()
+  monitor = peripheral.wrap(side)
+  return monitor
+end
