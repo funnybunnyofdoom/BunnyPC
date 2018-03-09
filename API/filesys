@@ -1,0 +1,29 @@
+--This is the file system for BunnyOS
+--Author: FunnyBunnyofDOOM
+
+--Objective: Display files and folders
+-- and allow file management
+
+function buildDir(dir)
+  if dir == nil then dir = '/' end --default statement
+  local fileArray = fs.list(dir) --get the files in directory
+  local files = {}
+  local folders = {}
+  local folderIndex = 1
+  local fileIndex = 1
+  for i=1,#fileArray do
+    if fs.isDir(fileArray[i]) then
+      folders[folderIndex] = fileArray[i]
+      folderIndex = folderIndex + 1
+    else
+      files[fileIndex] = fileArray[i]
+      fileIndex = fileIndex + 1
+    end
+  end
+  
+  return fileArray,files,folders
+end
+
+--Test code:
+x,y,z = buildDir()
+print(x[2].." "..y[1].." "..z[1])
