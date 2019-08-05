@@ -1,0 +1,12 @@
+--This program will write the
+--ascii symbols and their number
+--codes in to a text file
+
+file = fs.open('/Symbols.txt','w')
+
+for i=0,255,1 do
+    X = string.char(tonumber(i))
+    file.write(i..') '..X.."\n")
+end
+
+file.close()
