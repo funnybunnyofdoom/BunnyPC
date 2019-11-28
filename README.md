@@ -9,3 +9,12 @@ the PC
 
 This repository will also include API files to improve computer
 function and simplify tasks
+
+
+Included Programs:
+-detectMethod
+-keyReader
+-symbolPrint
+
+APIS:
+-
