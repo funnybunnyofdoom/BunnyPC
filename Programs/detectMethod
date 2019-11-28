@@ -1,0 +1,23 @@
+--This program will detect the
+--methods of peripherals
+--attached to the PC
+--Author: FunnyBunnyofDOOM
+
+function saveMethods(side)
+  SIDE = side or "back"
+  methodTable = peripheral.getMethods(SIDE)
+  file = fs.open("/BunnyOS/documents/Methods",'a')
+  file.write(methodTable)
+  file.close()
+  print("Methods saved for side "..SIDE)
+end
+
+sideInput() -- Asks the user what side to scan
+  print("What side should I scan?")
+  local scanSide = io.read()
+  print("scanning the "..scanSide.." side")
+  saveMethods(scanSide)
+  os.sleep(2)
+  print("Methods saved to /BunnyOS/documents/Methods")
+  os.sleep(2)
+end
